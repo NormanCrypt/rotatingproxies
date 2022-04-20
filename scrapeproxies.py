@@ -35,3 +35,10 @@ proxylist = getProxies()
 #check them all with futures super quick
 with concurrent.futures.ThreadPoolExecutor() as executor:
         executor.map(extract, proxylist)
+
+
+with open('proxies.csv', 'w') as f:
+    for i in range(len(proxylist)):
+        f.write(proxylist[i] + '\n')
+
+print(f'Scrapped {len(proxylist)} proxies!')
